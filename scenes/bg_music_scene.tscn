@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://daycqgxr7yy3s"]
+
+[ext_resource type="AudioStream" uid="uid://b58catg8megy0" path="res://assets/audio/game_music/MESHUGGAH - Nostrum (Drum Playthrough w Tomas Haake).mp3" id="1_t4tgu"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer"]
+stream = ExtResource("1_t4tgu")
+autoplay = true

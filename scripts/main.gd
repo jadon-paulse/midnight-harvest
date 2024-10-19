@@ -43,6 +43,7 @@ func new_game():
 	get_tree().paused = false
 	difficulty = 0
 	
+	
 	#delete all obstacles
 	for obs in obstacles:
 		obs.queue_free()
@@ -68,7 +69,7 @@ func _process(delta: float) -> void:
 			
 		#generate obstacles
 		generate_obs()
-	
+		
 		#move Reaper and camera
 		$Reaper.position.x += speed
 		$Camera2D.position.x += speed
