@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyntuiv0smxe4"]
+[gd_scene load_steps=5 format=3 uid="uid://dyntuiv0smxe4"]
 
 [ext_resource type="PackedScene" uid="uid://bb2uhhd5ub5px" path="res://scenes/bg.tscn" id="1_3pxkv"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_rw4uy"]
 [ext_resource type="PackedScene" path="res://scenes/floorTileMap.tscn" id="2_t6yfr"]
-[ext_resource type="PackedScene" uid="uid://04v1l6yqd0nt" path="res://scenes/character.tscn" id="3_0rv4p"]
+[ext_resource type="PackedScene" uid="uid://04v1l6yqd0nt" path="res://scenes/characters_enemies/character.tscn" id="3_0rv4p"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_rw4uy")
 
 [node name="BG" parent="." instance=ExtResource("1_3pxkv")]
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_t6yfr")]
+[node name="Ground" parent="." instance=ExtResource("2_t6yfr")]
 
 [node name="Reaper" parent="." instance=ExtResource("3_0rv4p")]
 position = Vector2(98, 486)
