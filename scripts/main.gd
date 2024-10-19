@@ -17,7 +17,7 @@ const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
 var speed : float
-const START_SPEED : float = 5.0
+const START_SPEED : float = 7.0
 const MAX_SPEED : int = 25
 const SPEED_MODIFIER : int = 5000
 var screen_size : Vector2i
@@ -30,6 +30,7 @@ func _ready() -> void:
 	screen_size = get_window().size
 	#manual because ground is a tilemaplayer
 	ground_height = 65
+	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
 	
 
@@ -37,7 +38,13 @@ func new_game():
 	score = 0
 	show_score()
 	game_running = false
-	difficulty = 0 
+	get_tree().paused = false
+	difficulty = 0
+	
+	#delete all obstacles
+	for obs in obstacles:
+		obs.queue_free()
+	obstacles.clear()
 	
 	#reset the nodes
 	$Reaper.position = REAPER_START_POS
@@ -45,8 +52,9 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = Vector2i(0,552)
 	
-	#reset hud
+	#reset hud and game over screen
 	$HUD.get_node("Start Label").show()
+	$GameOver.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -96,7 +104,7 @@ func generate_obs():
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
 		#spawn bird
-		if difficulty == 0:
+		if difficulty == MAX_DIFFICULTY:
 			if (randi() % 2) == 0:
 				obs = flying_demon_scene.instantiate()
 				var obs_x : int = screen_size.x + score + 100
@@ -107,6 +115,7 @@ func generate_obs():
 		
 func add_obs(obs, x,  y):
 	obs.position = Vector2i(x, y)
+	obs.body_entered.connect((hit_obs))
 	add_child(obs)
 	obstacles.append(obs)
 	
@@ -114,6 +123,10 @@ func remove_obs(obs):
 	obs.queue_free()
 	obstacles.erase(obs)
 	
+func hit_obs(body):
+	print(body)
+	if body.name == "Reaper":
+		game_over()
 	
 func show_score():
 	$HUD.get_node("Score Label").text = "SCORE: " + str(score / SCORE_MODIFIER)
@@ -122,4 +135,8 @@ func adjust_difficulty():
 	difficulty = score / SPEED_MODIFIER
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
-	
+		
+func game_over():
+	get_tree().paused = true
+	game_running = false
+	$GameOver.show()
