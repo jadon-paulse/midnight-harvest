@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyntuiv0smxe4"]
+[gd_scene load_steps=6 format=3 uid="uid://dd2elexcw74w1"]
 
 [ext_resource type="PackedScene" uid="uid://bb2uhhd5ub5px" path="res://scenes/bg.tscn" id="1_3pxkv"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_rw4uy"]
-[ext_resource type="PackedScene" path="res://scenes/floorTileMap.tscn" id="2_t6yfr"]
+[ext_resource type="PackedScene" uid="uid://c2hwabvbc2lke" path="res://scenes/floorTileMap.tscn" id="2_t6yfr"]
 [ext_resource type="PackedScene" uid="uid://04v1l6yqd0nt" path="res://scenes/characters_enemies/character.tscn" id="3_0rv4p"]
+[ext_resource type="PackedScene" uid="uid://og8qbtx5ocm2" path="res://scenes/hud.tscn" id="5_62cvm"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rw4uy")
@@ -20,3 +21,5 @@ collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_62cvm")]
