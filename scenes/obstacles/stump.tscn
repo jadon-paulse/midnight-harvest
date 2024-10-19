@@ -6,7 +6,7 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 texture = ExtResource("1_1odk4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

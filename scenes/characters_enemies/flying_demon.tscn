@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://chegsftdnosv"]
+[gd_scene load_steps=9 format=3 uid="uid://chegsftdnosv"]
 
+[ext_resource type="Script" path="res://scripts/flying_demon.gd" id="1_4a206"]
 [ext_resource type="Texture2D" uid="uid://bb7p5a7dsh0od" path="res://assets/enemy/flying_demon/FLYING.png" id="1_j8ar5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wumrj"]
@@ -41,7 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntvny"]
 size = Vector2(178, 238.75)
 
-[node name="Area2D" type="Area2D"]
+[node name="FlyingDemon" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_4a206")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
