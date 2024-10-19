@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://pmn27xt0mhp7"]
+[gd_scene load_steps=34 format=3 uid="uid://04v1l6yqd0nt"]
 
 [ext_resource type="Texture2D" uid="uid://csgeu44d34m1i" path="res://assets/character/Dead_anin.png" id="1_cemnp"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_udoeh"]
 [ext_resource type="AudioStream" uid="uid://ijwsox4at0jk" path="res://assets/audio/character/Jump.wav" id="2_vikma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36b8w"]
@@ -218,11 +219,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uco5c"]
-size = Vector2(20.125, 33.125)
+size = Vector2(22.25, 35.25)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Reaper" type="CharacterBody2D"]
 z_index = 1
 scale = Vector2(8, 8)
+script = ExtResource("1_udoeh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -233,7 +235,7 @@ frame = 4
 frame_progress = 0.400004
 
 [node name="MoveCol" type="CollisionShape2D" parent="."]
-position = Vector2(-0.0625, 6.5625)
+position = Vector2(-1.125, 7.625)
 shape = SubResource("RectangleShape2D_uco5c")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
