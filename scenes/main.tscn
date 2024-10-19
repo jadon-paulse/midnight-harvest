@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_rw4uy"]
 [ext_resource type="PackedScene" uid="uid://c2hwabvbc2lke" path="res://scenes/floorTileMap.tscn" id="2_t6yfr"]
 [ext_resource type="PackedScene" uid="uid://04v1l6yqd0nt" path="res://scenes/characters_enemies/character.tscn" id="3_0rv4p"]
-[ext_resource type="PackedScene" uid="uid://og8qbtx5ocm2" path="res://scenes/hud.tscn" id="5_62cvm"]
-[ext_resource type="PackedScene" uid="uid://db47co57ptom4" path="res://scenes/game_over.tscn" id="6_08lju"]
+[ext_resource type="PackedScene" uid="uid://dv2m4dqir5elu" path="res://scenes/hud.tscn" id="5_62cvm"]
+[ext_resource type="PackedScene" path="res://scenes/game_over.tscn" id="6_08lju"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_rw4uy")

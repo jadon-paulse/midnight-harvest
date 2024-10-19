@@ -17,6 +17,7 @@ const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
 var speed : float
+var high_score : int 
 const START_SPEED : float = 7.0
 const MAX_SPEED : int = 25
 const SPEED_MODIFIER : int = 5000
@@ -31,6 +32,7 @@ func _ready() -> void:
 	#manual because ground is a tilemaplayer
 	ground_height = 65
 	$GameOver.get_node("Button").pressed.connect(new_game)
+	
 	new_game()
 	
 
@@ -110,9 +112,7 @@ func generate_obs():
 				var obs_x : int = screen_size.x + score + 100
 				var obs_y : int = flying_demon_spawn_height[randi() % flying_demon_spawn_height.size()]
 				add_obs(obs, obs_x, obs_y)
-				
-
-		
+						
 func add_obs(obs, x,  y):
 	obs.position = Vector2i(x, y)
 	obs.body_entered.connect((hit_obs))
@@ -124,19 +124,24 @@ func remove_obs(obs):
 	obstacles.erase(obs)
 	
 func hit_obs(body):
-	print(body)
 	if body.name == "Reaper":
 		game_over()
 	
 func show_score():
 	$HUD.get_node("Score Label").text = "SCORE: " + str(score / SCORE_MODIFIER)
-	
+
+func check_high_score():
+	if score > high_score:
+		high_score = score
+		$HUD.get_node("HighScore Label").text = "SKILL ISSUE: " + str(high_score / SCORE_MODIFIER)
+		
 func adjust_difficulty():
 	difficulty = score / SPEED_MODIFIER
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
 		
 func game_over():
+	check_high_score()
 	get_tree().paused = true
 	game_running = false
 	$GameOver.show()
