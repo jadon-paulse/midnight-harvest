@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://chegsftdnosv"]
+
+[ext_resource type="Texture2D" uid="uid://bb7p5a7dsh0od" path="res://assets/enemy/flying_demon/FLYING.png" id="1_j8ar5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wumrj"]
+atlas = ExtResource("1_j8ar5")
+region = Rect2(0, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6naeq"]
+atlas = ExtResource("1_j8ar5")
+region = Rect2(81, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3kng"]
+atlas = ExtResource("1_j8ar5")
+region = Rect2(162, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8pu3"]
+atlas = ExtResource("1_j8ar5")
+region = Rect2(243, 0, 81, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hv5j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wumrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6naeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3kng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8pu3")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntvny"]
+size = Vector2(178, 238.75)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hv5j2")
+animation = &"flying"
+autoplay = "flying"
+frame_progress = 0.0612346
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-38, -0.375)
+shape = SubResource("RectangleShape2D_ntvny")
