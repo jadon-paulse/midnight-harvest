@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd2elexcw74w1"]
+
+[ext_resource type="PackedScene" uid="uid://bb2uhhd5ub5px" path="res://scenes/bg.tscn" id="1_3pxkv"]
+[ext_resource type="PackedScene" uid="uid://c2hwabvbc2lke" path="res://scenes/floorTileMap.tscn" id="2_t6yfr"]
+[ext_resource type="PackedScene" uid="uid://pmn27xt0mhp7" path="res://scenes/character.tscn" id="3_0rv4p"]
+
+[node name="Main" type="Node"]
+
+[node name="BG" parent="." instance=ExtResource("1_3pxkv")]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_t6yfr")]
+
+[node name="Reaper" parent="." instance=ExtResource("3_0rv4p")]
+position = Vector2(91, 494)
+scale = Vector2(3.5, 3.5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
