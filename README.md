@@ -70,7 +70,7 @@ The following tools were used in this project:
 ## 📲 DOWNLOAD ##
 
 You can find the game [here](https://github.com/jadon-paulse/midnight-harvest/releases). Download according to your operating system and then install it. The game is currently available for Windows.
-Other Platforms are not coming soon.
+Other Platforms are not coming soon. Make sure to download the pck file with the exe file and put them into one folder.
 
 ## :memo: License ##
 
